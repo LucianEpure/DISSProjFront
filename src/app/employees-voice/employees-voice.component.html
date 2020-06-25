@@ -1,0 +1,19 @@
+<div class="space space-component">
+  <button nbButton class="sidebar-toggle size-xl-medium" appearance="ghost" status="primary" (click)="toggleSidebar($event)">
+    <nb-icon class="icon btn-icon" icon="menu"></nb-icon>
+    <span></span>
+  </button>
+  <nb-card class="user-list">
+    <nb-card-header>
+      <div class="space space2">
+        <h6 class="heading text-basic">Employees Submissions</h6>
+      </div>
+    </nb-card-header>
+  
+    <nb-card-body>
+      <div class="space space1">
+        <ng2-smart-table class="smart-table" [settings]="settings" [source]="source"></ng2-smart-table>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

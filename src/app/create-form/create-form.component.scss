@@ -1,0 +1,198 @@
+:host {
+  
+  .sidebar-toggle {
+    width: auto;
+    flex-direction: row;
+    > nb-icon.btn-icon.icon {
+      margin: 0;
+    }
+    
+    span {
+      display: none;
+    }
+    
+    > nb-icon {
+      display: inline;
+    }
+  }
+    
+  .text {
+    margin: 0 0 100px 0;
+    color: var(--text-basic-color);
+  }
+    
+  .radio {
+    margin: 0 0 120px 43px;
+  }
+    
+  .text1 {
+    margin: 230px 0 0 -630px;
+    color: var(--text-basic-color);
+  }
+    
+  .radio1 {
+    margin: 288px 0 0 130px;
+  }
+    
+  .space6 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: left;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .space7 {
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: flex-start;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .button {
+    width: auto;
+    flex-direction: row;
+    > nb-icon.btn-icon.icon {
+      margin: 0;
+    }
+    
+    span {
+      display: inline;
+    }
+    
+    > nb-icon {
+      display: none;
+    }
+  }
+    
+  .space8 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .card {
+    width: 100%;
+    height: auto;
+  }
+    
+  .space1 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .input1 {
+    margin: 0 0 71px 0;
+    width: 1200px;
+  }
+    
+  .space9 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: left;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .space10 {
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: flex-start;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .button1 {
+    width: auto;
+    flex-direction: row;
+    > nb-icon.btn-icon.icon {
+      margin: 0;
+    }
+    
+    span {
+      display: inline;
+    }
+    
+    > nb-icon {
+      display: none;
+    }
+  }
+    
+  .space11 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .card1 {
+    width: 100%;
+    height: auto;
+    > nb-card-body {
+      padding: 0;
+    }
+  }
+    
+  .space2 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: visible;
+    background-color: unset;
+  }
+    
+  .tabs {
+    width: 100%;
+    height: auto;
+  }
+    
+  .space-component {
+    height: 100%;
+    width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+    background-color: unset;
+  }
+  
+}

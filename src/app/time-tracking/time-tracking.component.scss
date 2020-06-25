@@ -1,0 +1,62 @@
+:host {
+  
+  .smart-table {
+    width: 100%;
+    height: 150px;
+    margin: 206px 0 0 0;
+  }
+    
+  .sidebar-toggle {
+    margin: -360px 0 0 0;
+    width: auto;
+    flex-direction: row;
+    > nb-icon.btn-icon.icon {
+      margin: 0;
+    }
+    
+    span {
+      display: none;
+    }
+    
+    > nb-icon {
+      display: inline;
+    }
+  }
+    
+  .datepicker {
+    margin: -279px 0 0 513px;
+    width: auto;
+  }
+    
+  .datepicker1 {
+    margin: -278px 0 0 -470px;
+    width: auto;
+  }
+    
+  .icon {
+    margin: -281px 0 16px 285px;
+    font-size: 2.3rem;
+    color: var(--text-basic-color);
+  }
+    
+  .text {
+    margin: -269px 0 0 -595px;
+    color: var(--text-basic-color);
+  }
+    
+  .text1 {
+    margin: -269px 0 0 240px;
+    color: var(--text-basic-color);
+  }
+    
+  .space-component {
+    height: 100%;
+    width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+    background-color: unset;
+  }
+  
+}
