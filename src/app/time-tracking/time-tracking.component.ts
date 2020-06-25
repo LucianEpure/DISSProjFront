@@ -1,7 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import * as AppActions from '../state/app.actions';
 import * as fromApp from '../state/app.reducer';
 import { Store } from '@ngrx/store';
+import {TimeTracking} from './time-tracking'
+import {TimeTrackingService} from './time-tracking-service.service'
 
 @Component({
   selector: 'app-time-tracking',
@@ -9,42 +11,12 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./time-tracking.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
+
 export class TimeTrackingComponent implements OnInit {
-  settings =   {
-    columns: {
-      date: {
-        title: "Date",
-        filter: false
-      },
-      startTime: {
-        title: "Start time",
-        filter: false
-      },
-      endTime: {
-        title: "End time",
-        filter: false
-      },
-      workedHours: {
-        title: "Worked hours",
-        filter: false
-      }
-    },
-    delete: {
-      confirmDelete: true
-    },
-    add: {
-      confirmCreate: true
-    },
-    edit: {
-      confirmSave: true
-    },
-    actions: {
-      add: false,
-      edit: false,
-      delete: false
-    },
-    mode: "internal"
-  };
+  settings;
+  timeTrackings: TimeTracking[];
+  
   source =   [
     {
       date: "4/27/2020",
@@ -72,13 +44,51 @@ export class TimeTrackingComponent implements OnInit {
     }
   ];
 
-  constructor(private store: Store<fromApp.State>) { }
+  constructor(private store: Store<fromApp.State>, private timeTrackingService: TimeTrackingService,
+    private cdr : ChangeDetectorRef) { }
 
   toggleSidebar(event) {
     this.store.dispatch(AppActions.toggleSidebar({ data: event }));
   }
 
   ngOnInit(): void {
+    this.settings =
+     {
+      columns: {
+        startTime: {
+          title: "Start time",
+          filter: false
+        },
+        endTime: {
+          title: "End time",
+          filter: false
+        },
+        workedHours: {
+          title: "Worked hours",
+          filter: false
+        }
+      },
+      delete: {
+        confirmDelete: true
+      },
+      add: {
+        confirmCreate: true
+      },
+      edit: {
+        confirmSave: true
+      },
+      actions: {
+        add: false,
+        edit: false,
+        delete: false
+      },
+      mode: "internal"
+    };
+
+    this.timeTrackingService.findAll().subscribe(data => {
+      this.timeTrackings = data;
+    });
+    this.cdr.detectChanges();
   }
 
 }
