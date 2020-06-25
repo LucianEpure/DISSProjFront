@@ -3,8 +3,8 @@ import * as AppActions from '../state/app.actions';
 import * as fromApp from '../state/app.reducer';
 import { Store } from '@ngrx/store';
 import { LocalDataSource } from 'ng2-smart-table';
-import { User } from './employee';
-import { UserService } from './employee-service.service';
+import { Employee } from './employee';
+import { EmployeeService } from './employee-service.service';
 
 @Component({
   selector: 'app-employees',
@@ -15,39 +15,9 @@ import { UserService } from './employee-service.service';
 export class EmployeesComponent implements OnInit {
   settings;
 
-  users: User[];
-  source =   [
-    {
-      employeeName: "Danielle Kennedy",
-      date: "4/27/2020",
-      startTime: "09:46",
-      endTime: "19:42",
-      workedHours: "09:55"
-    },
-    {
-      employeeName: "Russell Payne",
-      date: "4/28/2020",
-      startTime: "08:16",
-      endTime: "18:51",
-      workedHours: "10:35"
-    },
-    {
-      employeeName: "Brenda Hanson",
-      date: "4/28/2020",
-      startTime: "09:54",
-      endTime: "19:37",
-      workedHours: "09:42"
-    },
-    {
-      employeeName: "Nathan Knight",
-      date: "4/28/2020",
-      startTime: "09:54",
-      endTime: "19:02",
-      workedHours: "09:08"
-    }
-  ];
-
-  constructor(private store: Store<fromApp.State>, private userService: UserService,
+  employees: Employee[];
+  //addedUser: User;
+  constructor(private store: Store<fromApp.State>, private employeeService: EmployeeService,
     private cdr : ChangeDetectorRef) { }
 
   toggleSidebar(event) {
@@ -58,16 +28,24 @@ export class EmployeesComponent implements OnInit {
     this.settings = 
       {
         columns: {
-          id: {
-            title: "ID",
+          username: {
+            title: "Usename",
             filter: false
           },
-          username: {
-            title: "Username",
+          startDate: {
+            title: "Start Date",
+            filter: false
+          },
+          endDate: {
+            title: "End Date",
+            filter: false
+          },
+          workedHours: {
+            title: "Worked Hours",
             filter: false
           }
         },
-        delete: {
+        /*delete: {
           confirmDelete: true
         },
         add: {
@@ -75,19 +53,48 @@ export class EmployeesComponent implements OnInit {
         },
         edit: {
           confirmSave: true
-        },
+        },*/
         actions: {
-          add: true,
-          edit: true,
-          delete: true
+          add: false,
+          edit: false,
+          delete: false
         },
         mode: "internal"
       };
   
-    this.userService.findAll().subscribe(data => {
-      this.users = data;
+    this.employeeService.findAll().subscribe(data => {
+      this.employees = data;
     });
     this.cdr.detectChanges();
   }
+/*
+  onCreateConfirm(event) {
+    if (window.confirm('Are you sure you want to save?')) {
+      this.addedUser = event.newData;
+      console.log(this.addedUser);
+      this.userService.save(this.addedUser).subscribe(next => {
+        event.confirm.reject();})
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  onEditConfirm(event) {
+    if (window.confirm('Are you sure you want to edit?')) {
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  onDeleteConfirm(event) {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
+*/
+  
 
 }

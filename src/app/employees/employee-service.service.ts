@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { User } from './employee';
+import { Employee } from './employee';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class EmployeeService {
 
-  private usersUrl: string;
+  private employeesUrl: string;
+  //private addUserUrl: string;
  
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users';
+    this.employeesUrl = 'http://localhost:8080/timesheetsForHr';
+    //this.addUserUrl = 'http://localhost:8080/addUser';
   }
-  public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+  public findAll(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(this.employeesUrl);
   }
 
-  public save(user: User) {
-    return this.http.post<User>(this.usersUrl, user);
-  }
+  /*public save(employee: Employee) {
+    console.log("Saving" + employee.username);
+    return this.http.post<Employee>(this.addUserUrl, employee);
+  }*/
 }
