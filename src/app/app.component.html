@@ -1,20 +1,18 @@
 <nb-layout withScroll [class.header-hidden]="!(layout$ | async)?.header">
 
-  <nb-layout-header *ngIf="(layout$ | async)?.header" class="header">
-    <div class="space space3">
-      <button nbButton class="btn-log-out size-xl-medium" appearance="filled" status="primary">
+  <nb-layout-header class="header">
+    <div *ngIf="router.url != '/Log-in'" class="space space3" style="display: flex; justify-content: flex-end;">
+      <button nbButton (click)="logOut()" class="btn-log-out size-xl-medium" appearance="filled" status="primary">
         <nb-icon class="icon btn-icon" icon="star-outline"></nb-icon>
         <span>Log out</span>
       </button>
     </div>
   </nb-layout-header>
-  <ng-container *ngIf="false">
-    <nb-sidebar *ngIf="(layout$ | async)?.sidebar" class="sidebar" responsive="true" [collapsedBreakpoints]="['xs', 'is', 'sm']" [compactedBreakpoints]="[]">
+      <nb-sidebar *ngIf="router.url != '/Log-in'" class="sidebar" responsive="true" [collapsedBreakpoints]="['xs', 'is', 'sm']" [compactedBreakpoints]="[]">
         <div class="space sidebar-space">
-          <nb-menu  class="menu" [items]="items"></nb-menu>
+          <nb-menu *ngIf="items" class="menu" [items]="items"></nb-menu>
         </div>
-    </nb-sidebar>
-</ng-container>
+      </nb-sidebar>
 
   <nb-layout-column [style.padding]="padding$ | async">
     <router-outlet></router-outlet>

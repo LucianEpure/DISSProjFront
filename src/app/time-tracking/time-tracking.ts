@@ -1,5 +1,4 @@
-export class Employee {
-    username: string;
+export class TimeTracking {
     startDate: Date;
     endDate: Date;
     workedHours: string;

@@ -19,6 +19,7 @@ import {
   NbTabsetModule
 } from '@nebular/theme';
 
+
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,8 @@ import { StoreModule } from '@ngrx/store';
 import { RootEffects } from './state/root.effects';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromApp from './state/app.reducer';
+import { CommunicationService } from './communication.service';
+import { AuthGuard } from './auth.guard';
 const mediaBreakpoints: NbMediaBreakpoint[] = [
   {
     name: 'xs',
@@ -78,7 +81,7 @@ const mediaBreakpoints: NbMediaBreakpoint[] = [
     NbTabsetModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CommunicationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

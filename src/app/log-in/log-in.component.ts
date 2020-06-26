@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { LoginService } from '../LoginService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -8,15 +9,25 @@ import { LoginService } from '../LoginService';
 })
 export class LogInComponent implements OnInit {
 
+  // username = 'javainuse'
+  // password = ''
+  // invalidLogin = false
+
   constructor(
-    private loginService: LoginService
+    // private router: Router,
+    // private loginService: LoginService
   ) { }
 
   ngOnInit(): void {
   }
 
-  private setLoggedIn(value: boolean): void {
-    this.loginService.setLoggedIn(value);
-  }
+  // checkLogin() {
+  //   if (this.loginService.authenticate(this.username, this.password)
+  //   ) {
+  //     this.router.navigate([''])
+  //     this.invalidLogin = false
+  //   } else
+  //     this.invalidLogin = true
+  // }
 
 }

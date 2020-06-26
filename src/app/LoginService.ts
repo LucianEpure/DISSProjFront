@@ -1,42 +1,50 @@
-import { Observable } from 'rxjs/Rx';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from './log-in/User';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { callbackify } from 'util';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  private userLoggedIn = new BehaviorSubject(false);
-  authenticated = false;
+export class LoginService implements OnInit {
 
-  getLoggedIn(): Observable<boolean> {
-    return this.userLoggedIn.asObservable();
+  private usersUrl: string;
+  user: User;
+
+  constructor(private router: Router, private http: HttpClient) {
+    this.usersUrl = 'http://localhost:8080/users/';
   }
 
-  getLoggedInValue(): boolean {
-    return this.userLoggedIn.getValue();
+  ngOnInit(): void {
+    
   }
 
-  setLoggedIn(val: boolean) {
-    this.userLoggedIn.next(val);
-  }
+  authenticate(username, password, callback) {
 
-  constructor(private http: HttpClient){}
+    this.getUserByUsername(username).subscribe(data => {
+      this.user = data;
 
-  authenticate(credentials, callback){
-    const headers = new HttpHeaders(credentials ? {
-      authorization : 'Basic ' + btoa(credentials.username + ':' + credentials.password)
-  } : {});
-
-  this.http.get('user', {headers: headers}).subscribe(response => {
-      if (response['name']) {
-          this.authenticated = true;
+      if (this.user != null && this.user.password === password) {
+        sessionStorage.setItem('username', username);
+        sessionStorage.setItem('role', this.user.roles[0].roleName);
+        callback(true);
       } else {
-          this.authenticated = false;
+        callback(false);
       }
-      return callback && callback();
-    });
+
+      });
+  }
+
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('username')
+    console.log(!(user === null))
+    return !(user === null)
+  }
+
+  public getUserByUsername(username): Observable<User> {
+    return this.http.get<User>(this.usersUrl + username);
   }
 
 }

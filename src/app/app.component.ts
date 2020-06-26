@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ChangeDetectorRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map, shareReplay } from 'rxjs/operators';
 import { BkLayout } from '@uibakery/kit';
 import { LoginService } from './LoginService';
 import { HttpClient } from '@angular/common/http';
+import { CommunicationService } from './communication.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
 
   public userLoggedIn: boolean;
-  private subscription: Subscription;
+  //private subscription: Subscription;
 
   defaultLayout: BkLayout = {
     paddings: {
@@ -48,27 +49,31 @@ export class AppComponent {
     .pipe(
       map((layout: BkLayout) => this.getPaddingCssValue(layout.paddings)),
     );
-  items =   [
-    // {
-    //   "title": "Attendance Register",
-    //   "link": "/Attendance-Register",
-    //   "children": null
-    // },
-    // {
-    //   "title": "Information",
-    //   "link": "/Information",
-    //   "children": null
-    // },
-    // {
-    //   "title": "Time Tracking",
-    //   "link": "/Time-Tracking",
-    //   "children": null
-    // },
-    // {
-    //   "title": "Employee Voice",
-    //   "link": "/Employee-voice",
-    //   "children": null
-    // }
+  items;
+  itemsEmployee =   [
+    {
+      "title": "Attendance Register",
+      "link": "/Attendance-Register",
+      "children": null
+    },
+    {
+      "title": "Information",
+      "link": "/Information",
+      "children": null
+    },
+    {
+      "title": "Time Tracking",
+      "link": "/Time-Tracking",
+      "children": null
+    },
+    {
+      "title": "Employee Voice",
+      "link": "/Employee-voice",
+      "children": null
+    }
+  ];
+
+  itemsHR =   [
     {
       "title": "Employees voice",
       "link": "/Employees-voice",
@@ -86,14 +91,16 @@ export class AppComponent {
     }
   ];
 
-  constructor(private router: Router, private loginService: LoginService, private http: HttpClient) {
-    this.loginService.authenticate(undefined, undefined);
-  }
-  logout() {
-    this.http.post('logout', {}).finally(() => {
-        this.loginService.authenticated = false;
-        this.router.navigateByUrl('/login');
-    }).subscribe();
+  constructor(public router: Router, private loginService: LoginService, private http: HttpClient, private cdr : ChangeDetectorRef, private communicationService: CommunicationService) {
+     communicationService.notificationSource$.subscribe(_ => {
+      let role = sessionStorage.getItem('role')
+      if (role !== null && role === "EMPLOYEE") {
+       this.items = this.itemsEmployee
+      }
+      else if (role !== null && role === "HR"){
+        this.items = this.itemsHR
+      }
+     });
   }
 
   private getPaddingCssValue(paddings): string {
@@ -104,17 +111,19 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-
-    // get the current value
-    this.subscription = this.loginService.getLoggedIn().subscribe(value => {
-        this.userLoggedIn = value;
-    });
-}
-
-  ngOnDestroy(): void {
-
-    if(this.subscription){
-        this.subscription.unsubscribe();
+    let role = sessionStorage.getItem('role')
+    if (role !== null && role === "EMPLOYEE") {
+     this.items = this.itemsEmployee
+    }
+    else if (role !== null && role === "HR"){
+      this.items = this.itemsHR
     }
   }
+
+  logOut() {
+    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('role')
+    this.router.navigate(['/Log-in'])
+  }
+
 }
