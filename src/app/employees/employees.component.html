@@ -6,9 +6,7 @@
   <div class="space space5">
     <h5 class="heading1 text-undefined text-alignment-left text-transform-none">Employees</h5>
   </div>
-  <ng2-smart-table class="smart-table1" [settings]="settings" [source]="employees" (deleteConfirm)="onDeleteConfirm($event)"
-  (editConfirm)="onEditConfirm($event)"
-  (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>
+  <ng2-smart-table class="smart-table1" [settings]="settings" [source]="employees"></ng2-smart-table>
   <input nbInput class="input size-xl-medium" placeholder="Employee Name" type="text" shape="rectangle" status="basic">
   <nb-icon class="icon giant" nbTooltip="" icon="search-outline"></nb-icon>
 </div>
