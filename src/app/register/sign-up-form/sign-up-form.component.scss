@@ -1,0 +1,45 @@
+:host {
+
+  width: 100%;
+  height: auto;
+  display: block;
+  
+  .text {
+    margin: 0 0 4px 0;
+  }
+    
+  .input1 {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+    
+  .text1 {
+    margin: 0 0 4px 0;
+  }
+    
+  .input2 {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+    
+  .text2 {
+    margin: 0 0 4px 0;
+  }
+    
+  .input3 {
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+    
+  .sign-up-form {
+    height: 100%;
+    min-height: 2rem;
+    width: 100%;
+    align-items: top;
+    align-content: top;
+    justify-content: left;
+    overflow: visible;
+    background-color: unset;
+  }
+  
+}

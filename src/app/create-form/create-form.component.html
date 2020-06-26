@@ -1,0 +1,76 @@
+<div class="space space-component">
+  <button nbButton class="sidebar-toggle size-xl-medium" appearance="ghost" status="primary" (click)="toggleSidebar($event)">
+    <nb-icon class="icon btn-icon" icon="menu"></nb-icon>
+    <span></span>
+  </button>
+  <nb-tabset class="tabs" fullWidth>
+    <nb-tab tabTitle="Create questionnaire" class="slot">
+      <div class="space space1">
+        <nb-card class="card">
+          <nb-card-header>
+            <div class="space space6">
+              <p class="text text-undefined text-bold text-alignment-left text-transform-none paragraph">I know who my supervisor is and what their responsibilities are.</p>
+              <nb-radio-group class="radio" name="Radio" status="basic">    
+                  <nb-radio value="Don't Agree (0)">Don't Agree (0)</nb-radio>    
+                  <nb-radio value="Somewhat agree (1)">Somewhat agree (1)</nb-radio>    
+                  <nb-radio value="Agree (2)">Agree (2)</nb-radio>    
+                  <nb-radio value="Strongly Agree (3)">Strongly Agree (3)</nb-radio>    
+                  <nb-radio value="Totally Agree (4)">Totally Agree (4)</nb-radio>
+              </nb-radio-group>
+              <p class="text1 text-undefined text-bold text-alignment-left text-transform-none paragraph">I believe I am part of a productive and active team</p>
+              <nb-radio-group class="radio1" name="Radio1" status="basic">    
+                  <nb-radio value="Don't Agree (0)">Don't Agree (0)</nb-radio>    
+                  <nb-radio value="Somewhat agree (1)">Somewhat agree (1)</nb-radio>    
+                  <nb-radio value="Agree (2)">Agree (2)</nb-radio>    
+                  <nb-radio value="Strongly Agree (3)">Strongly Agree (3)</nb-radio>    
+                  <nb-radio value="Totally Agree (4)">Totally Agree (4)</nb-radio>
+              </nb-radio-group>
+            </div>
+          </nb-card-header>
+        
+          <nb-card-body>
+            <div class="space space7">
+              
+            </div>
+          </nb-card-body>
+        
+          <nb-card-footer>
+            <div class="space space8">
+              <button nbButton class="button size-xl-medium" appearance="filled" status="primary">
+                <nb-icon class="icon btn-icon" icon="star"></nb-icon>
+                <span>CREATE questionnaires </span>
+              </button>
+            </div>
+          </nb-card-footer>
+        </nb-card>
+      </div>
+    </nb-tab>
+  
+    <nb-tab tabTitle="Send news" class="slot">
+      <div class="space space2">
+        <nb-card class="card1">
+          <nb-card-header>
+            <div class="space space9">
+              <input nbInput class="input1 size-xl-giant" placeholder="Enter Text" type="text" shape="rectangle" status="basic">
+            </div>
+          </nb-card-header>
+        
+          <nb-card-body>
+            <div class="space space10">
+              <app-space12></app-space12>
+            </div>
+          </nb-card-body>
+        
+          <nb-card-footer>
+            <div class="space space11">
+              <button nbButton class="button1 size-xl-medium" appearance="filled" status="primary">
+                <nb-icon class="icon btn-icon" icon="star"></nb-icon>
+                <span>send news</span>
+              </button>
+            </div>
+          </nb-card-footer>
+        </nb-card>
+      </div>
+    </nb-tab>
+  </nb-tabset>
+</div>

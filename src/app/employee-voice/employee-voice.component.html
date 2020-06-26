@@ -1,0 +1,53 @@
+<div class="space space-component">
+  <button nbButton class="sidebar-toggle size-xl-medium" appearance="ghost" status="primary" (click)="toggleSidebar($event)">
+    <nb-icon class="icon btn-icon" icon="menu"></nb-icon>
+    <span></span>
+  </button>
+  <nb-card class="card">
+    <nb-card-header>
+      <div class="space space2">
+        <h5 class="heading text-basic">Self-assessment form</h5>
+      </div>
+    </nb-card-header>
+  
+    <nb-card-body>
+      <div class="space space4">
+        <div class="space space6">
+          <div class="space space8">
+            <div class="space space10">
+              <label class="text text-basic label">Full Name</label>
+              <input nbInput class="input size-xl-medium" placeholder="Enter your full name" type="text" shape="rectangle" status="basic">
+            </div>
+            <div class="space space11">
+              <label class="text2 text-basic label">Email</label>
+              <input nbInput class="input1 size-xl-medium" placeholder="" type="email" shape="rectangle" status="basic">
+            </div>
+            <p class="text3 text-undefined text-bold text-alignment-left text-transform-none paragraph">Do I have sufficient knowledge and skills to perform this activity?</p>
+            <nb-radio-group class="radio" name="Radio" status="basic">    
+                <nb-radio value="YES">YES</nb-radio>    
+                <nb-radio value="NO">NO</nb-radio>
+            </nb-radio-group>
+            <input nbInput class="input2 size-xl-medium" placeholder="Action Plan" type="text" shape="rectangle" status="basic">
+            <p class="text1 text-undefined text-bold text-alignment-left text-transform-none paragraph">I know and understand the responsibilities of my job.</p>
+            <nb-radio-group class="radio1" name="Radio1" status="basic">    
+                <nb-radio value="Don't agree (0)">Don't agree (0)</nb-radio>    
+                <nb-radio value="Somewhat agree (1)">Somewhat agree (1)</nb-radio>    
+                <nb-radio value="Agree (2)">Agree (2)</nb-radio>    
+                <nb-radio value="Strongly Agree (3)">Strongly Agree (3)</nb-radio>    
+                <nb-radio value="Totally Agree (4)">Totally Agree (4)</nb-radio>
+            </nb-radio-group>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  
+    <nb-card-footer>
+      <div class="space space5">
+        <button nbButton class="button size-xl-medium" appearance="filled" status="primary">
+          <nb-icon class="icon btn-icon" icon="star"></nb-icon>
+          <span>SUBMIT</span>
+        </button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>

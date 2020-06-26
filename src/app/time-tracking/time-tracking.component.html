@@ -1,0 +1,20 @@
+<div class="space space-component">
+  <ng2-smart-table class="smart-table" [settings]="settings" [source]="source"></ng2-smart-table>
+  <button nbButton class="sidebar-toggle size-xl-medium" appearance="ghost" status="primary" (click)="toggleSidebar($event)">
+    <nb-icon class="icon btn-icon" icon="menu"></nb-icon>
+    <span></span>
+  </button>
+  
+    <input [nbDatepicker]="datepicker1" nbInput class="datepicker size-xl-medium" placeholder="Enter Date" shape="rectangle" status="basic">
+    <nb-datepicker #datepicker1>
+    </nb-datepicker>
+  
+  
+    <input [nbDatepicker]="datepicker2" nbInput class="datepicker1 size-xl-medium" placeholder="Enter Date" shape="rectangle" status="basic">
+    <nb-datepicker #datepicker2>
+    </nb-datepicker>
+  
+  <nb-icon class="icon" nbTooltip="" icon="search-outline"></nb-icon>
+  <p class="text text-undefined text-italic text-bold text-alignment-left text-transform-uppercase paragraph">From:</p>
+  <p class="text1 text-undefined text-italic text-bold text-alignment-left text-transform-uppercase paragraph">To:</p>
+</div>
