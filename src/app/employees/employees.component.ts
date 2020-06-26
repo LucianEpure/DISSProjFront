@@ -9,8 +9,7 @@ import { EmployeeService } from './employee-service.service';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
   settings;

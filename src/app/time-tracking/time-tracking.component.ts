@@ -8,8 +8,7 @@ import {TimeTrackingService} from './time-tracking-service.service'
 @Component({
   selector: 'app-time-tracking',
   templateUrl: './time-tracking.component.html',
-  styleUrls: ['./time-tracking.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./time-tracking.component.scss']
 })
 
 
