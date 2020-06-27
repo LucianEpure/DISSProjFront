@@ -51,7 +51,10 @@
         <nb-card class="card1">
           <nb-card-header>
             <div class="space space9">
-              <input nbInput class="input1 size-xl-giant" placeholder="Enter Text" type="text" shape="rectangle" status="basic">
+              <label class="text3 text-basic label">Subject</label>
+              <input nbInput class="input1 size-xl-giant"  placeholder="Enter Subject" type="text" shape="rectangle" status="basic" #newsSubject>
+              <label class="text3 text-basic label">Content</label>
+              <input nbInput class="input1 size-xl-giant"  placeholder="Enter Content" type="text" shape="rectangle" status="basic" #newsContent>
             </div>
           </nb-card-header>
         
@@ -63,7 +66,7 @@
         
           <nb-card-footer>
             <div class="space space11">
-              <button nbButton class="button1 size-xl-medium" appearance="filled" status="primary">
+              <button nbButton id="sendBtn" (click)="sendNews(newsSubject.value, newsContent.value)" class="button1 size-xl-medium" appearance="filled" status="primary">
                 <nb-icon class="icon btn-icon" icon="star"></nb-icon>
                 <span>send news</span>
               </button>

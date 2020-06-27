@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AttendanceRegisterService } from './time-tracking-service.service';
+import { AttendanceRegisterService } from './attendance-register-service.service';
 
 describe('AttendanceRegisterServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
