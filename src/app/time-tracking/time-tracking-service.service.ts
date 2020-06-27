@@ -12,9 +12,9 @@ export class TimeTrackingService {
   private timeTrackingsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.timeTrackingsUrl = 'http://localhost:8080/timesheetsForHr'; }
+    this.timeTrackingsUrl = 'http://localhost:8080/timesheetForEmployee/'; }
 
-    public findAll(): Observable<TimeTracking[]> {
-      return this.http.get<TimeTracking[]>(this.timeTrackingsUrl);
+    public findAll(username: string): Observable<TimeTracking[]> {
+      return this.http.get<TimeTracking[]>(this.timeTrackingsUrl+ username);
     }
 }

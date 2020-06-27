@@ -20,8 +20,8 @@ export class InformationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //Emp1 should be replaced with the username of the logged user
-    this.informationService.findAll('Emp1').subscribe(data => {
+    let username = sessionStorage.getItem('username')
+    this.informationService.findAll(username).subscribe(data => {
       this.informations = data;
     });
     this.cdr.detectChanges();

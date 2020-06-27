@@ -3,28 +3,29 @@
     <nb-icon class="icon btn-icon" icon="menu"></nb-icon>
     <span></span>
   </button>
-  <nb-card class="card">
-    <nb-card-body>
-      <div class="space space6">
-        <img class="image" src="/assets/images/default.svg" src="/assets/images/hourglass.png">
-        <button nbButton class="button1 size-xl-medium" appearance="filled" status="primary">
-          <nb-icon class="icon btn-icon" icon="star"></nb-icon>
-          <span>Time Tracking</span>
-        </button>
-      </div>
-    </nb-card-body>
-  </nb-card>
   <nb-card class="card1">
     <nb-card-body>
       <div class="space space7">
         <img class="image2" src="/assets/images/default.svg" src="/assets/images/timeIcon.png">
-        <button nbButton class="button2 size-xl-medium" appearance="filled" status="primary">
+        <button nbButton id="checkInBtn" (click)="checkIn($event)" class="button2 size-xl-medium" appearance="filled" status="primary">
           <nb-icon class="icon btn-icon" icon="star"></nb-icon>
           <span>Check in</span>
         </button>
       </div>
     </nb-card-body>
   </nb-card>
+  <nb-card class="card">
+    <nb-card-body>
+      <div class="space space6">
+        <img class="image" src="/assets/images/default.svg" src="/assets/images/hourglass.png">
+        <button nbButton id="checkInBtn" (click)="checkOut($event)" class="button1 size-xl-medium" appearance="filled" status="primary">
+          <nb-icon class="icon btn-icon" icon="star"></nb-icon>
+          <span>Check out</span>
+        </button>
+      </div>
+    </nb-card-body>
+  </nb-card>
+  
   <nb-calendar class="calendar size-xl-medium" startView="date" showNavigation></nb-calendar>
   <nb-card class="card2">
     <nb-card-header>
